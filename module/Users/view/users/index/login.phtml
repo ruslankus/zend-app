@@ -1,0 +1,59 @@
+<h2>Login</h2>
+
+<p>This page will hold content for login form</p>
+
+<a href="/users"> << Back home </a>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+        <?php
+        $form = $this->form;
+        $form->prepare();
+        $form->setAttribute('action', $this->url(null, array('controller' => 'index', 'action' => 'index')));
+        $form->setAttribute('method', 'post');
+        echo $this->form()->openTag($form);
+
+        ?>
+
+
+
+
+
+        <div class="form-group">
+            <?php
+            echo $this->formLabel($form->get('email'));
+            echo $this->formElement($form->get('email'));
+            echo $this->formElementErrors($form->get('email'))
+
+            ?>
+
+        </div>
+        <div class="form-group">
+
+            <?php
+            echo $this->formLabel($form->get('password'));
+            echo $this->formElement($form->get('password'));
+            echo $this->formElementErrors($form->get('password'))
+
+            ?>
+
+        </div>
+
+
+            <?php
+            $bt = $form->get('submit');
+            $bt->setValue('Login');
+            echo $this->formElement($bt);
+
+            echo $this->formElementErrors($bt);
+
+            ?>
+
+
+
+        </div>
+    </div>
+    <?php echo $this->form()->closeTag() ?>
+</div>
